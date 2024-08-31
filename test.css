@@ -12,6 +12,7 @@ body {
     background-color: #c4fff9;
     color: #343232;
     padding: 35px;
+    overflow-x: hidden; /* 横スクロールを無効にする */
 }
 
 /* ヘッダーのスタイル */
@@ -87,21 +88,23 @@ header, footer, main {
 }
 
 /* Hello Pythonのアニメーション */
+/* Hello Pythonのアニメーション */
 .hello-world {
     position: absolute;
     font-size: 2rem;
     font-weight: bold;
     white-space: nowrap;
-    z-index: 1; /* これにより、ヘッダーやフッターの下に配置される */
+    z-index: 1;
     animation: move-background 10s linear infinite;
 }
 
 /* Hello Pythonが流れるアニメーション */
 @keyframes move-background {
     0% {
-        transform: translateX(100vw); /* 画面外右端から開始 */
+        transform: translateX(100%); /* コンテナ内の右端から開始 */
     }
     100% {
-        transform: translateX(-100vw); /* 画面外左端まで移動 */
+        transform: translateX(-100%); /* コンテナ内の左端まで移動 */
     }
 }
+
