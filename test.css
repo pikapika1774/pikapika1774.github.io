@@ -50,6 +50,15 @@ nav ul li a:hover {
 main {
     margin-top: 20px;
 }
+.sl {
+    display: flow-root;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
 
 section {
     background-color: rgba(255,255,255,.7);
