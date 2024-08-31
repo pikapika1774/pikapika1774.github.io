@@ -1,38 +1,110 @@
-function twoDigit(num) {
-  return num < 10 ? "0" + num : num;
+/* リセットCSS：ブラウザごとのデフォルトスタイルをリセットします */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-function showClock() {
-  let nowTime = new Date();
-  let nowYear = nowTime.getFullYear();
-  let nowMonth = twoDigit(nowTime.getMonth() + 1); // 月は0から始まるので+1
-  let nowDay = twoDigit(nowTime.getDate());
-  let nowWeekday = ["日", "月", "火", "水", "木", "金", "土"][nowTime.getDay()];
-  let nowHour = twoDigit(nowTime.getHours());
-  let nowMin = twoDigit(nowTime.getMinutes());
-  let nowSec = twoDigit(nowTime.getSeconds());
-
-  let msg = "現在時刻：" + nowYear + "年" + nowMonth + "月" + nowDay + "日" + nowWeekday + "曜日 " + nowHour + ":" + nowMin + ":" + nowSec;
-  document.getElementById("realtime").innerHTML = msg;
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #c4fff9;
+    color: #343232;
+    padding: 35px;
+    overflow-x: hidden; /* 横スクロールを無効にする */
 }
 
-setInterval(showClock, 1000);
-
-function generateHelloPython() {
-  const colors = ['#FFCCCC', '#CCFFCC', '#CCCCFF', '#FFFFCC', '#CCFFFF', '#FFCCFF']; // 淡い色に変更
-  const container = document.body;
-
-  for (let i = 0; i < 25; i++) {
-      const helloPython = document.createElement('div');
-      helloPython.className = 'hello-world';
-      helloPython.textContent = 'Hello Python!!';
-      helloPython.style.fontSize = `${Math.random() * 3 + 1}rem`;
-      helloPython.style.color = colors[Math.floor(Math.random() * colors.length)];
-      helloPython.style.top = `${Math.random() * 100}vh`;
-      helloPython.style.left = `${Math.random() * 100}vw`;
-
-      container.appendChild(helloPython);
-  }
+/* ヘッダーのスタイル */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    border-radius: 10px;
 }
 
-generateHelloPython();
+header h1 {
+    margin-bottom: 15px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* メインセクションのスタイル */
+main {
+    margin-top: 20px;
+}
+.sl {
+    display: flow-root;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+section {
+    background-color: rgba(255,255,255,.7);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+/* フッターのスタイル */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ヘッダー、フッター、メインセクションのz-indexを設定 */
+header, footer, main {
+    position: relative;
+    z-index: 10; /* ここを高く設定して、流れるテキストの下に表示 */
+}
+
+/* Hello Pythonのアニメーション */
+/* Hello Pythonのアニメーション */
+.hello-world {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 1;
+    animation: move-background 10s linear infinite;
+}
+
+/* Hello Pythonが流れるアニメーション */
+@keyframes move-background {
+    0% {
+        transform: translateX(100%); /* コンテナ内の右端から開始 */
+    }
+    100% {
+        transform: translateX(-100%); /* コンテナ内の左端まで移動 */
+    }
+}
+
