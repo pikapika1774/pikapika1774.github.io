@@ -1,70 +1,98 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+/* リセットCSS：ブラウザごとのデフォルトスタイルをリセットします */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+/* ページ全体のスタイル */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #c4fff9;
+    color: #343232;
+    padding: 35px;
 }
 
-.profile-pic {
+/* ヘッダーのスタイル */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 0;
     text-align: center;
+    border-radius: 10px;
 }
 
-.profile-pic img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
+header h1 {
+    margin-bottom: 15px;
 }
 
-.intro {
-    text-align: center;
-    margin-top: 20px;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
-.intro h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
+nav ul li {
+    margin: 0 15px;
 }
 
-.intro p {
-    font-size: 1.2em;
-    color: #555;
-}
-
-.contact-info {
-    margin-top: 30px;
-}
-
-.contact-info h2 {
-    font-size: 1.5em;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-}
-
-.contact-info ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-info li {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.contact-info a {
-    color: #007BFF;
+nav ul li a {
+    color: #fff;
     text-decoration: none;
 }
 
-.contact-info a:hover {
+nav ul li a:hover {
     text-decoration: underline;
+}
+
+/* メインセクションのスタイル */
+main {
+    margin-top: 20px;
+}
+
+section {
+    background-color: rgba(255,255,255,.7);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+/* フッターのスタイル */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ヘッダー、フッター、メインセクションのz-indexを設定 */
+header, footer, main {
+    position: relative;
+    z-index: 10; /* ここを高く設定して、流れるテキストの下に表示 */
+}
+
+/* Hello Pythonのアニメーション */
+.hello-world {
+    position: absolute;
+    font-size: 2rem;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 1; /* これにより、ヘッダーやフッターの下に配置される */
+    animation: move-background 10s linear infinite;
+}
+
+/* Hello Pythonが流れるアニメーション */
+@keyframes move-background {
+    0% {
+        transform: translateX(100vw); /* 画面外右端から開始 */
+    }
+    100% {
+        transform: translateX(-100vw); /* 画面外左端まで移動 */
+    }
 }
