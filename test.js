@@ -25,7 +25,7 @@ function generateHelloPython() {
   for (let i = 0; i < 25; i++) {
       const helloPython = document.createElement('div');
       helloPython.className = 'hello-world';
-      helloPython.textContent = 'Hello Python!!';
+      helloPython.textContent = 'Hello World!';
       helloPython.style.fontSize = `${Math.random() * 3 + 1}rem`;
       helloPython.style.color = colors[Math.floor(Math.random() * colors.length)];
       helloPython.style.top = `${Math.random() * 100}vh`;
